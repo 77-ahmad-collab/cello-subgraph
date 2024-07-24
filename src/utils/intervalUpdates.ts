@@ -5,6 +5,7 @@ import {
   Factory,
   Pool,
   PoolDayData,
+  PoolMonthData,
   Token,
   TokenDayData,
   TokenHourData,
@@ -66,6 +67,55 @@ export function updateUniswapHourData(event: ethereum.Event): UniswapHourData {
   uniswapHourData.txCount = uniswap.txCount
   uniswapHourData.save()
   return uniswapHourData as UniswapHourData
+}
+
+export function updatePoolMonthData(event: ethereum.Event): PoolMonthData {
+  let timestamp = event.block.timestamp.toI32()
+  let dayID = timestamp / 2592000
+  let monthStartTimestamp = dayID * 2592000
+  let dayPoolID = event.address
+    .toHexString()
+    .concat('-')
+    .concat(dayID.toString())
+  let pool = Pool.load(event.address.toHexString())
+  let poolMonthData = PoolMonthData.load(dayPoolID)
+  if (poolMonthData === null) {
+    poolMonthData = new PoolMonthData(dayPoolID)
+    poolMonthData.date = monthStartTimestamp
+    poolMonthData.pool = pool.id
+    // things that dont get initialized always
+    poolMonthData.volumeToken0 = ZERO_BD
+    poolMonthData.volumeToken1 = ZERO_BD
+    poolMonthData.volumeUSD = ZERO_BD
+    poolMonthData.feesUSD = ZERO_BD
+    poolMonthData.txCount = ZERO_BI
+    poolMonthData.feeGrowthGlobal0X128 = ZERO_BI
+    poolMonthData.feeGrowthGlobal1X128 = ZERO_BI
+    poolMonthData.open = pool.token0Price
+    poolMonthData.high = pool.token0Price
+    poolMonthData.low = pool.token0Price
+    poolMonthData.close = pool.token0Price
+  }
+
+  if (pool.token0Price.gt(poolMonthData.high)) {
+    poolMonthData.high = pool.token0Price
+  }
+  if (pool.token0Price.lt(poolMonthData.low)) {
+    poolMonthData.low = pool.token0Price
+  }
+
+  poolMonthData.liquidity = pool.liquidity
+  poolMonthData.sqrtPrice = pool.sqrtPrice
+  poolMonthData.feeGrowthGlobal0X128 = pool.feeGrowthGlobal0X128
+  poolMonthData.feeGrowthGlobal1X128 = pool.feeGrowthGlobal1X128
+  poolMonthData.token0Price = pool.token0Price
+  poolMonthData.token1Price = pool.token1Price
+  poolMonthData.tick = pool.tick
+  poolMonthData.tvlUSD = pool.totalValueLockedUSD
+  poolMonthData.txCount = poolMonthData.txCount.plus(ONE_BI)
+  poolMonthData.save()
+
+  return poolMonthData as PoolMonthData
 }
 
 export function updatePoolDayData(event: ethereum.Event): PoolDayData {

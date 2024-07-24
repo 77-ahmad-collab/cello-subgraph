@@ -16,6 +16,7 @@ import {
   updatePool30MinData,
   updatePool5MinData,
   updatePoolDayData,
+  updatePoolMonthData,
   updatePoolHourData,
   updatePoolMinData,
   updateTickDayData,
@@ -47,6 +48,7 @@ export function handleInitialize(event: Initialize): void {
   bundle.save()
 
   updatePoolDayData(event)
+  updatePoolMonthData(event)
   updatePoolHourData(event)
   updatePool30MinData(event)
   updatePool5MinData(event)
@@ -162,6 +164,7 @@ export function handleMint(event: MintEvent): void {
   updateUniswapDayData(event)
   updateUniswapHourData(event)
   updatePoolDayData(event)
+  updatePoolMonthData(event)
   updatePoolHourData(event)
   updatePool30MinData(event)
   updatePool5MinData(event)
@@ -274,6 +277,7 @@ export function handleBurn(event: BurnEvent): void {
   updateUniswapDayData(event)
   updateUniswapHourData(event)
   updatePoolDayData(event)
+  updatePoolMonthData(event)
   updatePoolHourData(event)
   updatePool30MinData(event)
   updatePool5MinData(event)
@@ -440,6 +444,7 @@ export function handleSwap(event: SwapEvent): void {
   let uniswapDayData = updateUniswapDayData(event)
   let uniswapHourData = updateUniswapHourData(event)
   let poolDayData = updatePoolDayData(event)
+  let poolMonthData = updatePoolMonthData(event)
   let poolHourData = updatePoolHourData(event)
 
   let pool30MinData = updatePool30MinData(event)
@@ -471,6 +476,11 @@ export function handleSwap(event: SwapEvent): void {
   poolDayData.volumeToken0 = poolDayData.volumeToken0.plus(amount0Abs)
   poolDayData.volumeToken1 = poolDayData.volumeToken1.plus(amount1Abs)
   poolDayData.feesUSD = poolDayData.feesUSD.plus(feesUSD)
+  
+  poolMonthData.volumeUSD = poolMonthData.volumeUSD.plus(amountTotalUSDTracked)
+  poolMonthData.volumeToken0 = poolMonthData.volumeToken0.plus(amount0Abs)
+  poolMonthData.volumeToken1 = poolMonthData.volumeToken1.plus(amount1Abs)
+  poolMonthData.feesUSD = poolMonthData.feesUSD.plus(feesUSD)
 
   poolHourData.volumeUSD = poolHourData.volumeUSD.plus(amountTotalUSDTracked)
   poolHourData.volumeToken0 = poolHourData.volumeToken0.plus(amount0Abs)
