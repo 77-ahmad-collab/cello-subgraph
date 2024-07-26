@@ -4,17 +4,17 @@ import { Bundle, Pool, Token } from './../types/schema'
 import { BigDecimal, BigInt } from '@graphprotocol/graph-ts'
 import { exponentToBigDecimal, safeDiv } from '../utils/index'
 
-const WETH_ADDRESS = '0x7EbeF2A4b1B09381Ec5B9dF8C5c6f2dBECA59c73'
+const WETH_ADDRESS = '0x7ebef2a4b1b09381ec5b9df8c5c6f2dbeca59c73'
 const USDC_WETH_03_POOL = '0x90b48ed3d50df288a5b7af2d8696aa11e7be58fc'
 
 // token where amounts should contribute to tracked volume and liquidity
 // usually tokens that many tokens are paired with s
 export let WHITELIST_TOKENS: string[] = [
   WETH_ADDRESS, // WETH
-  '0x49F65C3FfC6e45104ff5cB00e6030C626157a90b', // DAI
-  '0x18fB38404DADeE1727Be4b805c5b242B5413Fa40', // USDC
-  '0x6308fa9545126237158778e74AE1b6b89022C5c0', // USDT
-  '0xe06FE7298243D8e47092a1E0679351f305e5f856' // BUSD
+  '0x49f65c3ffc6e45104ff5cb00e6030c626157a90b', // DAI
+  '0x18fb38404dadee1727be4b805c5b242b5413fa40', // USDC
+  '0x6308fa9545126237158778e74ae1b6b89022c5c0', // USDT
+  '0xe06fe7298243d8e47092a1e0679351f305e5f856' // BUSD
   // '0x0000000000085d4780b73119b644ae5ecd22b376', // TUSD
   // '0x2260fac5e5542a773aa44fbcfedf7c193bc2c599', // WBTC
   // '0x5d3a536e4d6dbd6114cc1ead35777bab948e3643', // cDAI
@@ -35,10 +35,10 @@ export let WHITELIST_TOKENS: string[] = [
 ]
 
 let STABLE_COINS: string[] = [
-  '0x49F65C3FfC6e45104ff5cB00e6030C626157a90b', // DAI
-  '0x18fB38404DADeE1727Be4b805c5b242B5413Fa40', // USDC
-  '0x6308fa9545126237158778e74AE1b6b89022C5c0', // USDT
-  '0xe06FE7298243D8e47092a1E0679351f305e5f856' // BUSD
+  '0x49f65c3ffc6e45104ff5cb00e6030c626157a90b', // DAI
+  '0x18fb38404dadee1727be4b805c5b242b5413fa40', // USDC
+  '0x6308fa9545126237158778e74ae1b6b89022c5c0', // USDT
+  '0xe06fe7298243d8e47092a1e0679351f305e5f856' // BUSD
 ]
 
 let MINIMUM_ETH_LOCKED = BigDecimal.fromString('0.1')

@@ -13,7 +13,7 @@ dataSources:
     name: Factory
     network: mainnet
     source:
-      address: '0xEE6099234bbdC793a43676D98Eb6B589ca7112D7'
+      address: '0xee6099234bbdc793a43676d98eb6b589ca7112d7'
       abi: Factory
       startBlock: 42968673
     mapping:
@@ -42,7 +42,7 @@ dataSources:
     name: NonfungiblePositionManager
     network: mainnet
     source:
-      address: '0x30d454297f03Fb638855A8C8559Ac0a745708ABf'
+      address: '0x30d454297f03fb638855a8c8559ac0a745708abf'
       abi: NonfungiblePositionManager
       startBlock: 42968673
     mapping:
