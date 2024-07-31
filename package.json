@@ -6,13 +6,10 @@
   "scripts": {
     "codegen": "graph codegen --output-dir src/types/",
     "build": "graph build",
-    "create-real": "graph create ELEKTRIK-GRAPH-V2-NEW --node http://3.136.167.120:8020",
-    "create-local": "graph create ELEKTRIK-GRAPH-V2-NEW --node http://127.0.0.1:8020",
-    "deploy-local": "graph deploy ELEKTRIK-GRAPH-V2-NEW --debug --ipfs http://localhost:5001 --node http://127.0.0.1:8020",
-    "deploy": "graph deploy ELEKTRIK-GRAPH-V2-NEW --ipfs http://3.136.167.120:5001 --node http://3.136.167.120:8020 --debug",
-    "deploy-dev": "graph deploy sommelier/uniswap-v3 --ipfs http://35.197.14.14:5000/ --node http://35.197.14.14:8020/ --debug",
-    "deploy-staging": "graph deploy $THE_GRAPH_GITHUB_USER/$THE_GRAPH_SUBGRAPH_NAME /Uniswap --ipfs https://api.staging.thegraph.com/ipfs/ --node https://api.staging.thegraph.com/deploy/",
-    "watch-local": "graph deploy ianlapham/uniswap-v3 --watch --debug --node http://127.0.0.1:8020/ --ipfs http://localhost:5001"
+    "create-real-mainnet": "graph create ELEKTRIK-GRAPH-V2 --node https://graph.phoenix.lightlink.io/rpc",
+    "deploy-mainnet": "graph deploy ELEKTRIK-GRAPH-V2 --ipfs https://ipfs.satsuma.xyz --node https://graph.phoenix.lightlink.io/rpc -l",
+    "create-real-testnet": "graph create ELEKTRIK-GRAPH-V2 --node https://graph.pegasus.lightlink.io/rpc",
+    "deploy-testnet": "graph deploy ELEKTRIK-GRAPH-V2 --ipfs https://ipfs.satsuma.xyz --node https://graph.pegasus.lightlink.io/rpc -l"
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "^0.20.3",
