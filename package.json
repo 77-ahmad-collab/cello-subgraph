@@ -6,10 +6,10 @@
   "scripts": {
     "codegen": "graph codegen --output-dir src/types/",
     "build": "graph build",
-    "create-real-mainnet": "graph create ELEKTRIK-GRAPH-V2 --node https://graph.phoenix.lightlink.io/rpc",
-    "deploy-mainnet": "graph deploy ELEKTRIK-GRAPH-V2 --ipfs https://ipfs.satsuma.xyz --node https://graph.phoenix.lightlink.io/rpc -l",
-    "create-real-testnet": "graph create ELEKTRIK-GRAPH-V2 --node https://graph.pegasus.lightlink.io/rpc",
-    "deploy-testnet": "graph deploy ELEKTRIK-GRAPH-V2 --ipfs https://ipfs.satsuma.xyz --node https://graph.pegasus.lightlink.io/rpc -l"
+    "create-real-mainnet": "graph create ELEKTRIK-GRAPH-V2-NEW --node https://graph.phoenix.lightlink.io/rpc",
+    "deploy-mainnet": "graph deploy ELEKTRIK-GRAPH-V2-NEW --ipfs https://ipfs.satsuma.xyz --node https://graph.phoenix.lightlink.io/rpc -l",
+    "create-real-testnet": "graph create ELEKTRIK-GRAPH-V2-NEW --node https://graph.pegasus.lightlink.io/rpc",
+    "deploy-testnet": "graph deploy ELEKTRIK-GRAPH-V2-NEW --ipfs https://ipfs.satsuma.xyz --node https://graph.pegasus.lightlink.io/rpc -l"
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "^0.20.3",
