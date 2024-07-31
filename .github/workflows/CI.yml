@@ -2,8 +2,8 @@ name: Deploy Mainnet Subgraph
 
 on:
   workflow_dispatch:
-  # push:
-  #   branches: [ "main" ]
+  push:
+    branches: [ "elektrik-phoenix-v2" ]
   # pull_request:
   #   branches: [ "main" ]
 
