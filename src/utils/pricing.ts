@@ -4,42 +4,22 @@ import { Bundle, Pool, Token } from './../types/schema'
 import { BigDecimal, BigInt } from '@graphprotocol/graph-ts'
 import { exponentToBigDecimal, safeDiv } from '../utils/index'
 
-const WETH_ADDRESS = '0x7ebef2a4b1b09381ec5b9df8c5c6f2dbeca59c73'
-const USDC_WETH_03_POOL = '0x90b48ed3d50df288a5b7af2d8696aa11e7be58fc'
+const WETH_ADDRESS = '0x471ece3750da237f93b8e339c536989b8978a438'
+const USDC_WETH_03_POOL = '0x2d70cbabf4d8e61d5317b62cbe912935fd94e0fe'
 
 // token where amounts should contribute to tracked volume and liquidity
 // usually tokens that many tokens are paired with s
 export let WHITELIST_TOKENS: string[] = [
   WETH_ADDRESS, // WETH
-  '0x49f65c3ffc6e45104ff5cb00e6030c626157a90b', // DAI
-  '0x18fb38404dadee1727be4b805c5b242b5413fa40', // USDC
-  '0x6308fa9545126237158778e74ae1b6b89022c5c0', // USDT
-  '0xe06fe7298243d8e47092a1e0679351f305e5f856', // BUSD
-  '0x2260fac5e5542a773aa44fbcfedf7c193bc2c599', // WBNB
-  // '0x0000000000085d4780b73119b644ae5ecd22b376', // TUSD
-  // '0x2260fac5e5542a773aa44fbcfedf7c193bc2c599', // WBTC
-  // '0x5d3a536e4d6dbd6114cc1ead35777bab948e3643', // cDAI
-  // '0x39aa39c021dfbae8fac545936693ac917d5e7563', // cUSDC
-  // '0x86fadb80d8d2cff3c3680819e4da99c10232ba0f', // EBASE
-  // '0x57ab1ec28d129707052df4df418d58a2d46d5f51', // sUSD
-  // '0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2', // MKR
-  // '0xc00e94cb662c3520282e6f5717214004a7f26888', // COMP
-  // '0x514910771af9ca656af840dff83e8264ecf986ca', // LINK
-  // '0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f', // SNX
-  // '0x0bc529c00c6401aef6d220be8c6ea1667f6ad93e', // YFI
-  // '0x111111111117dc0aa78b770fa6a738034120c302', // 1INCH
-  // '0xdf5e0e81dff6faf3a7e52ba697820c5e32d806a8', // yCurv
-  // '0x956f47f50a910163d8bf957cf5846d573e7f87ca', // FEI
-  // '0x7d1afa7b718fb893db30a3abc0cfc608aacfebb0', // MATIC
-  // '0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9', // AAVE
-  // '0xfe2e637202056d30016725477c5da089ab0a043a' // sETH2
+  "0x765de816845861e75a25fca122bb6898b8b1282a"
+  
 ]
 
 let STABLE_COINS: string[] = [
-  '0x49f65c3ffc6e45104ff5cb00e6030c626157a90b', // DAI
-  '0x18fb38404dadee1727be4b805c5b242b5413fa40', // USDC
-  '0x6308fa9545126237158778e74ae1b6b89022c5c0', // USDT
-  '0xe06fe7298243d8e47092a1e0679351f305e5f856' // BUSD
+
+  '0xceba9300f2b948710d2653dd7b07f33a8b32118c', // USDC
+  '0x765de816845861e75a25fca122bb6898b8b1282a', // cUSDT
+
 ]
 
 let MINIMUM_ETH_LOCKED = BigDecimal.fromString('0.1')
